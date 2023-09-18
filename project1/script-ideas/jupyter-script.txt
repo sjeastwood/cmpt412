@@ -1,0 +1,2 @@
+jupyter nbconvert /jupyter-git/simple-nb.ipynb --to="python" --output-dir="/results" --output="simple-nb-nbconvert"
+cat /results/simple-nb-nbconvert.py
