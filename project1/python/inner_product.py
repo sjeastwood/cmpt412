@@ -15,14 +15,19 @@ def inner_product_forward(input, layer, param):
     n = param["w"].shape[1]
 
     ###### Fill in the code here ######
-
+    W = param["w"]
+    X = input["data"]
+    b = param["b"]
+    
+    f = np.dot(W.T,X) + b.T
+    
     # Initialize output data structure
     output = {
         "height": n,
         "width": 1,
         "channel": 1,
         "batch_size": k,
-        "data": np.zeros((n, k)) # replace 'data' value with your implementation
+        "data": f #np.zeros((n, k)) # replace 'data' value with your implementation
     }
 
     return output
