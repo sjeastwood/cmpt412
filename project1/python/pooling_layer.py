@@ -21,14 +21,50 @@ def pooling_layer_forward(input, layer):
     h_out = int((h_in + 2 * pad - k) / stride + 1)
     w_out = int((w_in + 2 * pad - k) / stride + 1)
     
+    ###### Fill in the code here ######
+    output_data = np.zeros((c*h_out*w_out,batch_size))
+
+    for batch in range(batch_size):
+        #input image reshaped
+        img = input_data['data'][:,batch].reshape(c, h_in, w_in) #need to account for padding
+
+        # add padding if it exists
+        pad_img = np.zeros((c,pad*2+h_in,pad*2+w_in))
+        for chan in range(c):
+            pad_img[chan] = np.pad(img[chan],pad)
+
+        #matrix to hold the pooled layers
+        pool_mtx = np.zeros((c,h_out,w_out))
+
+        #slide kernel across pad_img and grab max
+
+        row = 0
+        col = 0 #to control the pool_mtx row and col to be filled in
+        #go across rows with j
+        for j in range(0,pad_img.shape[1],stride): #stride is 2
+
+            col = 0 #reset column for next row
+
+            #go across columns with i
+            for i in range(0,pad_img.shape[2],stride):
+
+                #go across channels
+                for chan in range(c):
+                    #grab max from the kernel slice of image mtx
+                    pool_mtx[chan,row,col] = np.max(pad_img[chan,j:j+stride,i:i+stride])
+
+                col = col + 1 # move on to the next column
+
+            row = row + 1 # increment row when columns are done
+
+        output_data[:,batch] = pool_mtx.reshape(1,c*h_out*w_out)[0]
+    
     output = {}
     output['height'] = h_out
     output['width'] = w_out
     output['channel'] = c
     output['batch_size'] = batch_size
-    output['data'] = np.zeros((h_out, w_out, c, batch_size)) # replace with your implementation
-
-    ###### Fill in the code here ######
+    output['data'] = output_data#np.zeros((h_out, w_out, c, batch_size)) # replace with your implementation
 
     return output
 
