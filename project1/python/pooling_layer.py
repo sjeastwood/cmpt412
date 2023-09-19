@@ -26,7 +26,7 @@ def pooling_layer_forward(input, layer):
 
     for batch in range(batch_size):
         #input image reshaped
-        img = input_data['data'][:,batch].reshape(c, h_in, w_in) #need to account for padding
+        img = input['data'][:,batch].reshape(c, h_in, w_in) #need to account for padding
 
         # add padding if it exists
         pad_img = np.zeros((c,pad*2+h_in,pad*2+w_in))
