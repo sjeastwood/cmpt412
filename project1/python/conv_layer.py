@@ -34,16 +34,42 @@ def conv_layer_forward(input_data, layer, param):
         'batch_size': batch_size
     }
 
+    ############# Fill in the code here ###############
+    # Hint: use im2col_conv_batch for faster computation
+    
+    #empty output_data
+    output_data = np.zeros((h_out*w_out*num,batch_size))
+    
+    #declare empty output to be filled in
+    conv_img = np.zeros((num,h_out,w_out))
+    
+    #prepare the data for convolution
+    pre_conv = im2col_conv_batch(input_n, layer, h_out, w_out)
+    
+    #learning parameters
+    W = param['w']
+    b = param['b']
+    
+    for batch in range(batch_size):
+        #grab per image of batch
+        pre_conv_img = pre_conv[:,:,batch]
+
+        #convolving over the number of filters
+        for n in range(num):
+            for row in range(h_out):
+                for col in range(w_out):
+                    conv_img[n,row,col] = np.dot(pre_conv_img[:,row*w_out+col], W[:,n]) + b[n]
+                                
+        output_data[:,batch] = conv_img.reshape(1,h_out*w_out*num)
+    
     output = {
         'height': h_out,
         'width': w_out,
         'channel': num,
         'batch_size': batch_size,
-        'data': np.zeros((h_out, w_out, num, batch_size)) # replace 'data' value with your implementation
+        'data': output_data#np.zeros((h_out, w_out, num, batch_size)) # replace 'data' value with your implementation
     }
-
-    ############# Fill in the code here ###############
-    # Hint: use im2col_conv_batch for faster computation
+    
     
     return output
 
