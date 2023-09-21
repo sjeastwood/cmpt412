@@ -1,5 +1,11 @@
 import numpy as np
 
+def activate(x):
+    if x > 0:
+        return x
+    else:
+        return 0
+
 def relu_forward(input_data):
     output = {
         'height': input_data['height'],
@@ -10,7 +16,11 @@ def relu_forward(input_data):
 
     ###### Fill in the code here ######
     # Replace the following line with your implementation.
-    output['data'] = np.zeros_like(input_data['data'])
+    # output['data'] = np.zeros_like(input_data['data'])
+
+    # vectorize the function to perform relu across all elements in the input array
+    relu_activate = np.vectorize(activate)
+    output['data'] = relu_activate(input_data['data'])
     
     return output
 
