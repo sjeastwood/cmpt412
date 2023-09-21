@@ -5,6 +5,12 @@ def activate(x):
         return x
     else:
         return 0
+    
+def differentiate(x):
+    if x > 0:
+        return 1
+    else:
+        return 0
 
 def relu_forward(input_data):
     output = {
@@ -27,6 +33,9 @@ def relu_forward(input_data):
 def relu_backward(output, input_data, layer):
     ###### Fill in the code here ######
     # Replace the following line with your implementation.
-    input_od = np.zeros_like(input_data['data'])
+    # input_od = np.zeros_like(input_data['data'])
+
+    relu_diff = np.vectorize(differentiate)
+    input_od = relu_diff(input_data['data'])
 
     return input_od
