@@ -26,8 +26,8 @@ def relu_forward(input_data):
     # output['data'] = np.zeros_like(input_data['data'])
 
     # vectorize the function to perform relu across all elements in the input array
-    # relu_activate = np.vectorize(activate)
-    output['data'] = np.maximum(0,input_data['data'])#relu_activate(input_data['data'])
+    relu_activate = np.vectorize(activate)
+    output['data'] = relu_activate(input_data['data']) #np.maximum(0,input_data['data'])
     
     return output
 
