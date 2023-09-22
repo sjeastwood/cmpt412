@@ -50,7 +50,7 @@ def inner_product_backward(output, input_data, layer, param):
     input = input_data['data']
 
     param_grad['b'] = output['diff'] #since partial derivate with respect to b is 1
-    param_grad['w'] = np.dot(output['diff'], input.T)
-    input_od = np.dot(param['w'], output['diff'].T)
+    param_grad['w'] = np.dot(input, output['diff'].T)
+    input_od = np.dot(param['w'], output['diff'])
 
     return param_grad, input_od
