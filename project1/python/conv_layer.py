@@ -58,7 +58,7 @@ def conv_layer_forward(input_data, layer, param):
         for n in range(num):
             for row in range(h_out):
                 for col in range(w_out):
-                    conv_img[n,row,col] = np.dot(pre_conv_img[:,row*w_out+col], W[:,n]) + b[n]
+                    conv_img[n,row,col] = np.dot(pre_conv_img[:,row*w_out+col], W[:,n].T) + b[:,n]
                                 
         output_data[:,batch] = conv_img.reshape(1,h_out*w_out*num)
     

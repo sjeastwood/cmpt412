@@ -46,8 +46,11 @@ def inner_product_backward(output, input_data, layer, param):
     param_grad = {}
     ###### Fill in the code here ######
     # Replace the following lines with your implementation.
-    param_grad['b'] = np.zeros_like(param['b'])
-    param_grad['w'] = np.zeros_like(param['w'])
-    input_od = None
+
+    input = input_data['data']
+
+    param_grad['b'] = output['diff'] #since partial derivate with respect to b is 1
+    param_grad['w'] = np.dot(output['diff'],input.T)
+    input_od = np.dot(param['w'].T,output['diff'])
 
     return param_grad, input_od
