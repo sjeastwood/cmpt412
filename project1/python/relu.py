@@ -1,13 +1,14 @@
 import numpy as np
 
 def activate(x):
-    if x > 0:
-        return x
-    else:
-        return 0
+    # if x > 0:
+    #     return x
+    # else:
+    #     return 0
+    return np.maximum(0,x)
     
 def differentiate(x):
-    if x > 0:
+    if x >= 0: #greater than 0 vs non-negative
         return 1
     else:
         return 0
@@ -35,7 +36,12 @@ def relu_backward(output, input_data, layer):
     # Replace the following line with your implementation.
     # input_od = np.zeros_like(input_data['data'])
 
+    # print(input_data['data'].shape)
+
     relu_diff = np.vectorize(differentiate)
-    input_od = relu_diff(input_data['data'])
+    dR = relu_diff(input_data['data'])
+    input_od = np.multiply(output['diff'],dR)
+
+    # print(input_od.shape)
 
     return input_od

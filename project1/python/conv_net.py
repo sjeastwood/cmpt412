@@ -98,6 +98,7 @@ def convnet_forward(params, layers, data, test=False):
 
     for i in range(1, l-1):
         layer_type = layers[i]['type']
+        # print("iteration {}, layer {}".format(i, layer_type))
         if layer_type == 'CONV':
             output.append(conv_layer_forward(output[i-1], layers[i], params[i-1]))
         elif layer_type == 'POOLING':

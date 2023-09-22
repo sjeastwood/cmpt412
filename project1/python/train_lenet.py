@@ -46,6 +46,7 @@ ytrain = ytrain[:, new_order]
 curr_batch = 0  
 
 for iter in range(max_iter):
+    print("iter {}".format(iter))
     if curr_batch >= m_train:
         new_order = np.random.permutation(m_train)
         xtrain = xtrain[:, new_order]
@@ -82,4 +83,6 @@ for iter in range(max_iter):
 
     if iter % snapshot == 0:
         savemat('../results/lenet.mat', {'params': params})
+    
+
 

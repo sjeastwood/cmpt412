@@ -19,7 +19,12 @@ def inner_product_forward(input, layer, param):
     X = input["data"]
     b = param["b"]
     
+    # print("x shape {}".format(X.shape))
+    # print("W shape {}".format(W.shape))
+    # print("b shape {}".format(b.shape))
     f = np.dot(W.T,X) + b.T
+
+    # print(f.shape)
     
     # Initialize output data structure
     output = {
@@ -49,8 +54,12 @@ def inner_product_backward(output, input_data, layer, param):
 
     input = input_data['data']
 
-    param_grad['b'] = output['diff'] #since partial derivate with respect to b is 1
-    param_grad['w'] = np.dot(input, output['diff'].T)
-    input_od = np.dot(param['w'], output['diff'])
+    batch_size = output['batch_size']
+
+    db = np.zeros((1,batch_size)) #make a batch_size x 1 vector to multiply with output['diff']
+
+    param_grad['b'] = np.matmul(db, output['diff'].T) 
+    param_grad['w'] = np.matmul(input, output['diff'].T)
+    input_od = np.matmul(param['w'], output['diff'])
 
     return param_grad, input_od
