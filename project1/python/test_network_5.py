@@ -66,4 +66,8 @@ my_pred_val = []
 for i in range(len(my_pred)):
     my_pred_val.append(np.argmax(my_pred[i]))
 
+print("Truth Values: ")
+print("[1, 2, 3, 4, 4, 7, 7, 9]")
+
+print("Prediction array: ")
 print(my_pred_val)
