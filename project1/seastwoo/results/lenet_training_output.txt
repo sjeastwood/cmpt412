@@ -1,0 +1,48 @@
+cost = 2.3052969551671945 training_percent = 0.12
+0
+test accuracy: 0.104
+cost = 0.9033634435578706 training_percent = 0.76
+cost = 0.3398698799294238 training_percent = 0.9
+cost = 0.21652899857068728 training_percent = 0.92
+cost = 0.04052615392341683 training_percent = 0.99
+cost = 0.05837456954481816 training_percent = 0.97
+cost = 0.04278268064549225 training_percent = 0.99
+cost = 0.023685142943218412 training_percent = 1.0
+cost = 0.006032151699959478 training_percent = 1.0
+cost = 0.004275109611302121 training_percent = 1.0
+cost = 0.0071653046666679335 training_percent = 1.0
+500
+test accuracy: 0.942
+cost = 0.0023629874724990633 training_percent = 1.0
+cost = 0.00346054329836696 training_percent = 1.0
+cost = 0.0017827785025674129 training_percent = 1.0
+cost = 0.0029841768559573244 training_percent = 1.0
+cost = 0.0017592708076679647 training_percent = 1.0
+cost = 0.0012021085434141484 training_percent = 1.0
+cost = 0.002401790782316668 training_percent = 1.0
+cost = 0.0029138238305415403 training_percent = 1.0
+cost = 0.0009491323713761939 training_percent = 1.0
+cost = 0.0021595520359884287 training_percent = 1.0
+1000
+test accuracy: 0.948
+cost = 0.001698008432569159 training_percent = 1.0
+cost = 0.0029187921564884007 training_percent = 1.0
+cost = 0.0016130306632255913 training_percent = 1.0
+cost = 0.0013871743481688973 training_percent = 1.0
+cost = 0.0011098071540110248 training_percent = 1.0
+cost = 0.001270630241884766 training_percent = 1.0
+cost = 0.0017597248790382346 training_percent = 1.0
+cost = 0.0013553826011012931 training_percent = 1.0
+cost = 0.001082587422271702 training_percent = 1.0
+cost = 0.0010610507281729477 training_percent = 1.0
+1500
+test accuracy: 0.95
+cost = 0.001127084995449505 training_percent = 1.0
+cost = 0.0005724377278478151 training_percent = 1.0
+cost = 0.0009319566485670734 training_percent = 1.0
+cost = 0.0009528560981944073 training_percent = 1.0
+cost = 0.0014770210747834332 training_percent = 1.0
+cost = 0.000726979457479719 training_percent = 1.0
+cost = 0.0012902846674811967 training_percent = 1.0
+cost = 0.0013484958897971517 training_percent = 1.0
+cost = 0.0009322426945504926 training_percent = 1.0
