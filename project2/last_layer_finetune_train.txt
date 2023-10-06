@@ -1,0 +1,70 @@
+TRAINING Epoch 1/50 Loss 0.1588 Accuracy 0.0453
+TRAINING Epoch 2/50 Loss 0.1179 Accuracy 0.2150
+TRAINING Epoch 3/50 Loss 0.0947 Accuracy 0.3463
+TRAINING Epoch 4/50 Loss 0.0796 Accuracy 0.4487
+TRAINING Epoch 5/50 Loss 0.0689 Accuracy 0.5320
+TRAINING Epoch 6/50 Loss 0.0621 Accuracy 0.5613
+TRAINING Epoch 7/50 Loss 0.0561 Accuracy 0.6153
+TRAINING Epoch 8/50 Loss 0.0515 Accuracy 0.6343
+TRAINING Epoch 9/50 Loss 0.0494 Accuracy 0.6400
+TRAINING Epoch 10/50 Loss 0.0467 Accuracy 0.6733
+TRAINING Epoch 11/50 Loss 0.0442 Accuracy 0.6893
+TRAINING Epoch 12/50 Loss 0.0413 Accuracy 0.7093
+TRAINING Epoch 13/50 Loss 0.0401 Accuracy 0.7167
+TRAINING Epoch 14/50 Loss 0.0396 Accuracy 0.7250
+TRAINING Epoch 15/50 Loss 0.0376 Accuracy 0.7330
+TRAINING Epoch 16/50 Loss 0.0362 Accuracy 0.7343
+TRAINING Epoch 17/50 Loss 0.0353 Accuracy 0.7533
+TRAINING Epoch 18/50 Loss 0.0350 Accuracy 0.7440
+TRAINING Epoch 19/50 Loss 0.0336 Accuracy 0.7600
+TRAINING Epoch 20/50 Loss 0.0331 Accuracy 0.7520
+TRAINING Epoch 21/50 Loss 0.0314 Accuracy 0.7750
+TRAINING Epoch 22/50 Loss 0.0323 Accuracy 0.7673
+TRAINING Epoch 23/50 Loss 0.0320 Accuracy 0.7613
+TRAINING Epoch 24/50 Loss 0.0310 Accuracy 0.7743
+TRAINING Epoch 25/50 Loss 0.0288 Accuracy 0.7917
+TRAINING Epoch 26/50 Loss 0.0294 Accuracy 0.7853
+TRAINING Epoch 27/50 Loss 0.0282 Accuracy 0.7970
+TRAINING Epoch 28/50 Loss 0.0278 Accuracy 0.7947
+TRAINING Epoch 29/50 Loss 0.0269 Accuracy 0.8080
+TRAINING Epoch 30/50 Loss 0.0271 Accuracy 0.8050
+TRAINING Epoch 31/50 Loss 0.0274 Accuracy 0.7983
+TRAINING Epoch 32/50 Loss 0.0269 Accuracy 0.8050
+TRAINING Epoch 33/50 Loss 0.0252 Accuracy 0.8197
+TRAINING Epoch 34/50 Loss 0.0258 Accuracy 0.8107
+TRAINING Epoch 35/50 Loss 0.0260 Accuracy 0.8147
+TRAINING Epoch 36/50 Loss 0.0259 Accuracy 0.8097
+TRAINING Epoch 37/50 Loss 0.0251 Accuracy 0.8180
+TRAINING Epoch 38/50 Loss 0.0258 Accuracy 0.8110
+TRAINING Epoch 39/50 Loss 0.0242 Accuracy 0.8217
+TRAINING Epoch 40/50 Loss 0.0251 Accuracy 0.8210
+TRAINING Epoch 41/50 Loss 0.0239 Accuracy 0.8250
+TRAINING Epoch 42/50 Loss 0.0239 Accuracy 0.8240
+TRAINING Epoch 43/50 Loss 0.0234 Accuracy 0.8300
+TRAINING Epoch 44/50 Loss 0.0222 Accuracy 0.8393
+TRAINING Epoch 45/50 Loss 0.0239 Accuracy 0.8317
+TRAINING Epoch 46/50 Loss 0.0228 Accuracy 0.8300
+TRAINING Epoch 47/50 Loss 0.0236 Accuracy 0.8213
+TRAINING Epoch 48/50 Loss 0.0234 Accuracy 0.8277
+TRAINING Epoch 49/50 Loss 0.0208 Accuracy 0.8507
+TRAINING Epoch 50/50 Loss 0.0218 Accuracy 0.8440
+Finished Training
+----------
+
+
+NUM_EPOCHS = 50
+LEARNING_RATE = 0.007
+BATCH_SIZE = 32
+RESNET_LAST_ONLY = True #Fine tunes only the last layer. Set to False to fine tune entire network
+
+# root_path = '/data/' #If your data is in a different folder, set the path accodordingly
+
+root_path = "/mnt/c/Users/shane/Downloads/data/"
+
+data_transforms = 
+        transforms.Resize(256),
+        #TODO: Transforms.RandomResizedCrop() instead of CenterCrop(), RandomRoate() and Horizontal Flip()
+        transforms.RandomResizedCrop(224),
+        transforms.RandomHorizontalFlip(p=0.5),
+        transforms.ToTensor(),
+        transforms.Normalize((0.5064, 0.4798, 0.4314),(0.2557, 0.2441, 0.2634))

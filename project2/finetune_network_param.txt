@@ -1,0 +1,17 @@
+NUM_EPOCHS = 50
+LEARNING_RATE = 0.007
+BATCH_SIZE = 32
+RESNET_LAST_ONLY = True #Fine tunes only the last layer. Set to False to fine tune entire network
+
+# root_path = '/data/' #If your data is in a different folder, set the path accodordingly
+
+root_path = "/mnt/c/Users/shane/Downloads/data/"
+
+data_transforms = 
+        transforms.Resize(256),
+        #TODO: Transforms.RandomResizedCrop() instead of CenterCrop(), RandomRoate() and Horizontal Flip()
+        transforms.RandomResizedCrop(224),
+        transforms.RandomHorizontalFlip(p=0.5),
+        transforms.RandomRotation(10),
+        transforms.ToTensor(),
+        transforms.Normalize((0.5064, 0.4798, 0.4314),(0.2557, 0.2441, 0.2634))
