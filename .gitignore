@@ -1,0 +1,17 @@
+project3/__MACOSX/*
+project3/__MACOSX/balloon/*
+project3/balloon/*
+project3/output/balloon_val_coco_format.json
+project3/output/balloon_val_coco_format.json.lock
+project3/output/coco_instances_results.json
+project3/output/events.out.tfevents.1697747372.pop-os.8743.0
+project3/output/instances_predictions.pth
+project3/output/last_checkpoint
+project3/output/metrics.json
+project3/output/model_final.pth
+project3/balloon_dataset.zip
+project3/input.jpg
+project3/video-clip.mp4
+project3/video-output.mkv
+project3/video.mp4
+project3/detectron2
